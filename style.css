@@ -73,8 +73,6 @@ button {
     font-weight: bold;
     border: 0;
     font-family: 'Orbitron';
-    
-
 }
 
 button:hover {
@@ -99,7 +97,7 @@ button:hover {
 }
 .clear:hover {
     background-color: rgb(255, 82, 82);
-    transform: scale(0.97);
+
 }
 
 .delete {
@@ -108,4 +106,8 @@ button:hover {
 
 .delete:hover {
     background-color: rgb(144, 144, 255);
+}
+
+.transform-button {
+    transform: scale(0.98);
 }
