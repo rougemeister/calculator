@@ -26,6 +26,7 @@ html{
     border-radius: 10px;
     font-family: 'Monomaniac One', sans-serif;
 }
+
 .top,
 .down {
     text-align: right;
@@ -39,8 +40,11 @@ html{
 }
 
 .down {
-    font-size: 85px;
+    font-size: 75px;
     size-adjust: 50%;
+    margin: 0;
+    padding-top: 0;
+
 }
 
 
@@ -75,28 +79,33 @@ button {
     font-family: 'Orbitron';
 }
 
-button:hover {
+
+
+.operator {
+    background-color: gold;
+}
+.operator-transform {
     margin: 2px;
     border-radius: 10px;
-    background-color: rgb(240, 240, 224);
+    background-color: rgb(247, 224, 94);
     font-size: medium;
     font-weight: bold;
     border: 0;
-
-}
-
-.operator {
-    background-color: rgb(87, 253, 87);
-}
-.operator:hover {
-    background-color: rgb(150, 252, 150);
-}
+    transform: scale(0.98);
+} 
 
 .clear {
     background-color: rgb(255, 34, 34);
 }
-.clear:hover {
+
+.clear-transform{
+    margin: 2px;
+    border-radius: 10px;
     background-color: rgb(255, 82, 82);
+    font-size: medium;
+    font-weight: bold;
+    border: 0;
+    transform: scale(0.98);
 
 }
 
@@ -104,10 +113,36 @@ button:hover {
     background-color: rgb(118, 118, 255);
 }
 
-.delete:hover {
+.delete-transform {
+    margin: 2px;
+    border-radius: 10px;
     background-color: rgb(144, 144, 255);
+    font-size: medium;
+    font-weight: bold;
+    border: 0;
+    transform: scale(0.98);
 }
 
 .transform-button {
+    margin: 2px;
+    border-radius: 10px;
+    background-color: rgb(240, 240, 224);
+    font-size: medium;
+    font-weight: bold;
+    border: 0;
+    transform: scale(0.98);
+}
+
+.equals {
+    background-color: rgb(13, 165, 157);
+}
+
+.equals-transform {
+    background-color: rgb(64, 223, 215);
+    margin: 2px;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: bold;
+    border: 0;
     transform: scale(0.98);
 }
