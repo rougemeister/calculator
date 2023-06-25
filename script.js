@@ -4,7 +4,8 @@ const backspaceButton = document.querySelector('.delete');
 const allButtons = document.querySelectorAll('button');
 const equalToButton = document.querySelector('.equals');
 const operators = document.querySelectorAll('.operator');
-
+const downScreen = document.querySelector('.down');
+const topScreen = document.querySelector('.top')
 
 
 function clearAll (){
@@ -17,7 +18,6 @@ function clearAll (){
     
 }
 
-
 function getNumber(event){
         let topScreen = document.querySelector('.top');
         topScreen.textContent += event.target.textContent;
@@ -25,6 +25,7 @@ function getNumber(event){
             for(let button of buttons)button.removeEventListener('click', getNumber)
         }
 }
+
 
 function backspace(){
     let topScreen = document.querySelector('.top');
@@ -75,33 +76,46 @@ for(let button of allButtons){
 equalToButton.addEventListener('click', calculate);
 
 function calculate(){
-    const topScreen = document.querySelector('.top');
-    const downScreen = document.querySelector('.down');
+    let topScreen = document.querySelector('.top');
+    let downScreen = document.querySelector('.down');
     
-
-
     let topScreenContent = topScreen.textContent;
+    let firstNum, secondNum;
+    let value;
     switch(true){
         case topScreenContent.includes('+'):
-            let [addendOne, addendTwo] = topScreenContent.split('+');
-            let sum = operate('+', addendOne, addendTwo);
-            downScreen.textContent = sum;
-            topScreenContent = sum;
+            [firstNum, secondNum] = topScreenContent.split('+');
+            value = operate('+', firstNum, secondNum);
+            downScreen.textContent = value;
+            for(let operator of operators){
+                operator.addEventListener('click', calculateWithAnswer)
+            }
+            
             break;
         case topScreenContent.includes('-'):
-            let [minuend, subtrahend] = topScreenContent.split('-')
-            difference = operate('-', minuend, subtrahend);
-            downScreen.textContent = difference;
+            [firstNum, secondNum] = topScreenContent.split('-')
+            value = operate('-', firstNum, secondNum);
+            downScreen.textContent = value;
+            for(let operator of operators){
+                operator.addEventListener('click', calculateWithAnswer)
+            }
             break;
         case topScreenContent.includes('x'):
-            let [multiplicand, multiplier] = topScreenContent.split('x');
-            let product = operate('x', multiplicand, multiplier);
-            downScreen.textContent = product;
+            [firstNum, secondNum]= topScreenContent.split('x');
+            value = operate('x', firstNum, secondNum);
+            downScreen.textContent = value;
+            for(let operator of operators){
+                operator.addEventListener('click', calculateWithAnswer)
+            }
             break;
         case topScreenContent.includes('÷'):
-            let [dividend, divisor] = topScreenContent.split('÷');
-            let quotient = operate('÷', dividend, divisor);
-            downScreen.textContent = quotient; 
+            [firstNum, secondNum]= topScreenContent.split('÷');
+            value = operate('÷', firstNum, secondNum);
+            downScreen.textContent = value;
+            for(let operator of operators){
+                operator.addEventListener('click', calculateWithAnswer)
+            }
+            break;
             
     }
 }
@@ -126,17 +140,28 @@ function operate(operator, firstNum, secondNum){
        return results = 'Syntax Error'
     }
     if(results.toString().length>9){
-        return results = results.toExponential(5)
+        return results = results.toPrecision(6);
     }
     
     return results;
 }
 
+function calculateWithAnswer(e){
+    if(downScreen.textContent === '') return;
+    topScreen.textContent = downScreen.textContent + e.target.textContent;
+
+}
 
 
+for(let operator of operators){
+    operator.addEventListener('click', calculate)
+}
 
-  
+
 for(let button of buttons )button.addEventListener('click', getNumber);
 clearButton.addEventListener('click', clearAll);
 backspaceButton.addEventListener('click', backspace);
+
+
+
 

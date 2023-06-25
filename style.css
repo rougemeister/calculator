@@ -29,7 +29,7 @@ html{
 
 .top,
 .down {
-    text-align: right;
+   
     padding: 10px;
     margin: 0;
 
@@ -44,6 +44,7 @@ html{
     size-adjust: 50%;
     margin: 0;
     padding-top: 0;
+    text-align: right;
 
 }
 
